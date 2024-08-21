@@ -5,6 +5,15 @@ Pre-requisites
 Java 17 must be install 
 Maven must be install
 
+To install the MS-Edge browser 
+`mvn exec:java -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="install msedge"`
+you should see success message
+
+to increase the time out(not always required)
+`$Env:PLAYWRIGHT_DOWNLOAD_CONNECTION_TIMEOUT="120000"`
+
+to skip browser download (required)
+`$Env:PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1`
 
 
 To execute the tests :

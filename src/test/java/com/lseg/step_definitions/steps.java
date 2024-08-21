@@ -1,6 +1,10 @@
 package com.lseg.step_definitions;
 
 
+import com.lseg.pages.BasePage;
+import com.lseg.pages.CheckoutPage;
+import com.lseg.pages.ItemsPage;
+import com.lseg.pages.LoginPage;
 import com.microsoft.playwright.Page;
 
 import io.cucumber.java.After;
@@ -8,7 +12,6 @@ import io.cucumber.java.Scenario;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import com.lseg.pages.*;
 
 public class steps extends BasePage{
 	
@@ -21,9 +24,11 @@ public class steps extends BasePage{
 	
 	@Given("^User launched SwagLabs application$")
 	public void user_launched_swaglabs_application() {
+		
 		try {
-			page = createPlaywrightPageInstance(System.getProperty("browser"));
-			page.navigate(System.getProperty("applicationUrl"));
+			System.setProperty("PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD", "1");
+			page = createPlaywrightPageInstance(readPropertiesFile("BROWSER"));
+			page.navigate(readPropertiesFile("WEB_URL"));
 			loginPage = new LoginPage(page);
 			itemsPage = new ItemsPage(page);
 			checkoutPage = new CheckoutPage(page);
