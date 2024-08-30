@@ -1,17 +1,18 @@
 package com.lseg.step_definitions;
 
+import java.net.URI;
+import java.net.URISyntaxException;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.junit.Assert;
+
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.junit.Assert;
-
-import java.net.URI;
-import java.net.URISyntaxException;
 
 public class API_steps {
 
